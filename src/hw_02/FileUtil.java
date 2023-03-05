@@ -6,7 +6,15 @@ import java.io.*;
 import java.util.*;
 
 public class FileUtil {
-
+    /**
+     * Task 1.
+     * <p /> The method rewrites the contents of one file to another file, but only in UPPERCASE.
+     *
+     * @param source      path.
+     * @param destination path.
+     * @throws IOException throws an exception if the file is handled incorrectly.
+     *                     in this method, the direction of rewriting is selected
+     */
     public void copyContent(String source, String destination) throws IOException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Выбери направление перезаписи. Если 1- из первого во второй фаилб если 2-то обратное");
@@ -22,7 +30,15 @@ public class FileUtil {
         }
     }
 
-
+    /**
+     * Task 1/1.
+     * <p /> The method rewrites the contents of one file to another file, but only in UPPERCASE.
+     *
+     * @param source      path.
+     * @param destination path.
+     * @throws IOException throws an exception if the file is handled incorrectly.
+     *                     This method performs the main task of overwriting
+     */
     private void copyContentWithUpperCase(String source, String destination) throws IOException {
         File file = new File(source);
         if (file.isFile()) {
@@ -40,6 +56,14 @@ public class FileUtil {
         }
     }
 
+    /**
+     * Task 2.
+     * <p /> The method returns a list of lines in this file.
+     *
+     * @param source the path to the file.
+     * @return list of lines in this file.
+     * @throws IOException throws an exception if the file is handled incorrectly.
+     */
     public List<String> stringList(String source) throws IOException {
         List<String> list = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(source))) {
@@ -51,6 +75,14 @@ public class FileUtil {
         return list;
     }
 
+    /**
+     * Task 3.
+     * <p /> The method returns a list of words starting with a vowel.
+     *
+     * @param source the path to the file.
+     * @return words that begin with a vowel.
+     * @throws IOException throws an exception if the file is handled incorrectly.
+     */
     public List<String> wordsFromVowelLetter(String source) throws IOException {
         List<String> list = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(source))) {
@@ -67,6 +99,15 @@ public class FileUtil {
         return list;
     }
 
+    /**
+     * Task 4.
+     * <p /> The method returns a list of words for which the last letter matches the first letter of the word
+     * following it.
+     *
+     * @param source the path to the file.
+     * @return list of words for which the last letter matches the first letter of the word following it.
+     * @throws IOException throws an exception if the file is handled incorrectly.
+     */
     public List<String> wordsWithLastMatches(String source) throws IOException {
         List<String> lastMathesWords = new ArrayList<>();
         String[] tempWord = readFile(source).toString().split(" ");
@@ -79,6 +120,14 @@ public class FileUtil {
         return lastMathesWords;
     }
 
+    /**
+     * Task 6.
+     * <p /> The method returns the frequency of occurrence of all letters in the text, ignoring case.
+     *
+     * @param source the path to the file.
+     * @return a collection of letters with their repetition in the text.
+     * @throws IOException throws an exception if the file is handled incorrectly.
+     */
     public Map<Character, Integer> getFrequencyRepetitionAllLettersText(String source) throws IOException {
         Map<Character, Integer> map = new TreeMap<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(source))) {
@@ -95,6 +144,15 @@ public class FileUtil {
         return map;
     }
 
+    /**
+     * Task 7.
+     * <p /> The method returns the frequency of occurrence of all words in the text in ascending order
+     * of frequency of occurrence.
+     *
+     * @param source the path to the file.
+     * @return a collection of words in ascending order of their occurrences.
+     * @throws IOException throws an exception if the file is handled incorrectly.
+     */
     public Map<String, Integer> getFrequencyAllWords(String source) throws IOException {
         Map<String, Integer> map = new HashMap<>();
         String[] tempWord = readFile(source).toString().split("[ .,!&?]");
@@ -115,6 +173,15 @@ public class FileUtil {
         return sortedMap;
     }
 
+    /**
+     * Task 8.
+     * <p />The method returns the overwritten information from the file along the source path to
+     * the file ${origin_filepath}_. The overwritten information is a list of rows with numbers sorted
+     * in ascending order.
+     *
+     * @param source the path to the file.
+     * @throws IOException throws an exception if the file is handled incorrectly.
+     */
     public void sortedInFile(String source) throws IOException {
         StringBuilder builder = new StringBuilder();
         String[] strings = readFile(String.valueOf(source)).toString().split("\\W");
@@ -135,6 +202,14 @@ public class FileUtil {
         }
     }
 
+    /**
+     * Task 9.
+     * <p />The method returns students' academic performance based on the data in the file
+     *
+     * @param source the path to the file.
+     * @return map with student's surname and his avarageMark
+     * @throws IOException throws an exception if the file is handled incorrectly.
+     */
     public Map<String, Double> averageScore(String source) throws IOException {
         Map<String, Double> map = new HashMap<>();
 
@@ -158,7 +233,17 @@ public class FileUtil {
         return map;
     }
 
-    public void javaReplaice(String source, String existingModifier, String newModifier) throws IOException {
+    /**
+     * Task 10.
+     * <p /> The method replaces modifiers in java code from X to Y and saves the result to the file ${origin_filepath}_.
+     *
+     * @param source           path.
+     * @param existingModifier Java modification.
+     * @param newModifier      Java modification.
+     * @throws IOException throws an exception if the file is handled incorrectly.
+     *                     And this method selects which modifier is to be replaced with
+     */
+    public void javaReplaiceModificator(String source, String existingModifier, String newModifier) throws IOException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Выбери направление перезаписи модификатора. Если 1- 1 на 2ой, если 2-обратное");
         Byte choose = scanner.nextByte();
@@ -173,6 +258,16 @@ public class FileUtil {
         }
     }
 
+    /**
+     * Task 10/1.
+     * <p /> The method replaces modifiers in java code from X to Y and saves the result to the file ${origin_filepath}_.
+     *
+     * @param source           path.
+     * @param existingModifier Java modification.
+     * @param newModifier      Java modification.
+     * @throws IOException throws an exception if the file is handled incorrectly.
+     *                     This method performs the main task of overwriting
+     */
     private void replaiceModification(String source, String existingModifier, String newModifier) throws IOException {
         String[] strings = readFile(source).toString().split("\n");
 
@@ -187,6 +282,13 @@ public class FileUtil {
         }
     }
 
+    /**
+     * Custom method to read file and parthing in String
+     *
+     * @param source
+     * @return StringBuilder with line from file
+     * @throws IOException
+     */
     private StringBuilder readFile(String source) throws IOException {
         StringBuilder builder = new StringBuilder();
 
