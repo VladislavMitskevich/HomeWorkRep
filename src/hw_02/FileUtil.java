@@ -300,4 +300,64 @@ public class FileUtil {
             return builder;
         }
     }
+
+
+    /**
+     * Custom method to do logic with check string
+     *
+     * @param listOfNumber the values in the file line
+     * @param tempBiggest The List with the current largest sequence
+     * @param tempCurrent a List with the current sequence
+     */
+    public void findListOfLargestNumberCombination(String[] listOfNumber, List<Integer> tempBiggest, List<Integer> tempCurrent) {
+        for (int i = 1; i < listOfNumber.length; i++) {
+            int firstInt = Integer.parseInt(listOfNumber[i - 1]);
+            int secondInt = Integer.parseInt(listOfNumber[i]);
+            if ((secondInt - firstInt) == 1) {
+                tempCurrent.add(secondInt);
+            } else {
+                if (tempCurrent.size() > tempBiggest.size()) {
+                    tempBiggest.clear();
+                    tempBiggest.addAll(tempCurrent);
+                }
+                tempCurrent.clear();
+                tempCurrent.add(secondInt);
+            }
+        }
+        if (tempCurrent.size() > tempBiggest.size()) {
+            tempBiggest.clear();
+            tempBiggest.addAll(tempCurrent);
+        }
+    }
+
+    /**
+     * Task 5.
+     * <p /> The method returns a list of the largest combination of digits for each row, which are in ascending order.
+     *
+     * @param source           path.
+     * @return List of the strings with  the longest sequence.
+     * @throws IOException throws an exception if the file is handled incorrectly.
+     *                     This method performs the main task of overwriting
+     */
+    public List<String> getListOfLargestNumberCombination(String source) throws IOException {
+        List<String> numbersOrders = new ArrayList<>();
+        List<Integer> tempBiggest = new ArrayList<>();
+        List<Integer> tempCurrent = new ArrayList<>();
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(source))) {
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] listOfNumber = line.split(" ");
+                tempCurrent.add(Integer.parseInt(listOfNumber[0]));
+                findListOfLargestNumberCombination(listOfNumber, tempBiggest, tempCurrent);
+                String lineOfNumbers = "";
+                for (Integer number : tempBiggest) {
+                    lineOfNumbers += number + " ";
+                }
+                numbersOrders.add(lineOfNumbers);
+                tempBiggest.clear();
+                tempCurrent.clear();
+            }
+            return numbersOrders;
+        }
+    }
 }
