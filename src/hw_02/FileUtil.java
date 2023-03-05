@@ -3,6 +3,7 @@ package hw_02;
 import hw_02.custom.CustomComparator;
 
 import java.io.*;
+import java.nio.file.Path;
 import java.util.*;
 
 public class FileUtil {
@@ -98,17 +99,86 @@ public class FileUtil {
         String world = "";
         for (String s : tempWord) {
             world = s;
-            if (!map.containsKey(world)){
-                map.put(world,1);
-            }else {
+            if (!map.containsKey(world)) {
+                map.put(world, 1);
+            } else {
                 int entry = map.get(world);
-                map.put(world,entry+1);
+                map.put(world, entry + 1);
             }
         }
         Comparator<String> comparator = new CustomComparator(map);
-        Map<String,Integer> sortedMap = new TreeMap<>(comparator);
+        Map<String, Integer> sortedMap = new TreeMap<>(comparator);
         sortedMap.putAll(map);
         return sortedMap;
+    }
+
+    public void sortedInFile(Path source) throws IOException {
+        StringBuilder builder = new StringBuilder();
+        String[] strings = readFile(String.valueOf(source)).toString().split("\\W");
+        int[] integers = new int[strings.length];
+
+        for (int i = 0; i < strings.length; i++) {
+            integers[i] = Integer.parseInt(strings[i]);
+        }
+
+        Arrays.sort(integers);
+
+        for (int integer : integers) {
+            builder.append(integer).append(" ");
+        }
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(source + "_"))) {
+            writer.write(builder.toString().trim());
+        }
+    }
+
+    public Map<String, Double> averageScore(String source) throws IOException {
+        Map<String, Double> map = new HashMap<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(source))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] splitedString = line.trim().split("\\W");
+                Double mark = 0.0;
+                Double avgMark;
+                int count = 0;
+                for (int i = 0; i < splitedString.length; i++) {
+                    if (splitedString[i].matches("[0-9]")) {
+                        count++;
+                        mark = mark + Double.parseDouble(splitedString[i]);
+                    }
+                    avgMark = mark / count;
+                    map.put(splitedString[0], avgMark);
+                }
+            }
+        }
+        return map;
+    }
+
+    public void javaCode(String source, String existingModifier, String newModifier) throws IOException {
+        Byte choose = null;
+        switch (choose) {
+            case 1:
+                replaiceModification(source, existingModifier, newModifier);
+                break;
+            case 2:
+                replaiceModification(source, newModifier, existingModifier);
+                break;
+        }
+    }
+
+    private void replaiceModification(String source, String existingModifier, String newModifier) throws IOException {
+        String[] strings = readFile(source).toString().split("\n");
+
+        for (int i = 0; i < strings.length; i++) {
+            strings[i] = strings[i].replaceAll(existingModifier, newModifier);
+        }
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(source + "_"))) {
+            for (String string : strings) {
+                writer.write(string + "\n");
+            }
+        }
     }
 
     private StringBuilder readFile(String source) throws IOException {
