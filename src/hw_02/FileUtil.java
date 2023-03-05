@@ -3,12 +3,15 @@ package hw_02;
 import hw_02.custom.CustomComparator;
 
 import java.io.*;
-import java.nio.file.Path;
 import java.util.*;
 
 public class FileUtil {
 
-    public void copyContent(String source, String destination, Byte choose) throws IOException {
+    public void copyContent(String source, String destination) throws IOException {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Выбери направление перезаписи. Если 1- из первого во второй фаилб если 2-то обратное");
+        Byte choose = scanner.nextByte();
+        scanner.close();
         switch (choose) {
             case 1:
                 copyContentWithUpperCase(source, destination);
@@ -112,7 +115,7 @@ public class FileUtil {
         return sortedMap;
     }
 
-    public void sortedInFile(Path source) throws IOException {
+    public void sortedInFile(String source) throws IOException {
         StringBuilder builder = new StringBuilder();
         String[] strings = readFile(String.valueOf(source)).toString().split("\\W");
         int[] integers = new int[strings.length];
@@ -155,8 +158,11 @@ public class FileUtil {
         return map;
     }
 
-    public void javaCode(String source, String existingModifier, String newModifier) throws IOException {
-        Byte choose = null;
+    public void javaReplaice(String source, String existingModifier, String newModifier) throws IOException {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Выбери направление перезаписи модификатора. Если 1- 1 на 2ой, если 2-обратное");
+        Byte choose = scanner.nextByte();
+        scanner.close();
         switch (choose) {
             case 1:
                 replaiceModification(source, existingModifier, newModifier);
