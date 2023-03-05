@@ -184,7 +184,7 @@ public class FileUtil {
      */
     public void sortedInFile(String source) throws IOException {
         StringBuilder builder = new StringBuilder();
-        String[] strings = readFile(String.valueOf(source)).toString().split("\\W");
+        String[] strings = readFile(source).toString().split("\\W");
         int[] integers = new int[strings.length];
 
         for (int i = 0; i < strings.length; i++) {
