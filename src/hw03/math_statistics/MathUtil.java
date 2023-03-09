@@ -10,7 +10,7 @@ public class MathUtil {
         return new Random().ints(size, lowBound, highBound).toArray();
     }
 
-    private int count(int[] numbers, Comparison cs) {
+    private static int count(int[] numbers, Comparison cs) {
         int count = 0;
         for (Integer number : numbers) {
             if (cs.isEqual(number)) {
@@ -20,19 +20,19 @@ public class MathUtil {
         return count;
     }
 
-    public int getCountEvenNumbers(int[] numbers) {
+    public static int getCountEvenNumbers(int[] numbers) {
         Comparison even = CustomComparison::isEven;
         return count(numbers, even);
     }
-    public int getCountOddNumbers(int[] numbers) {
+    public static int getCountOddNumbers(int[] numbers) {
         Comparison odd = CustomComparison::isOdd;
         return count(numbers, odd);
     }
-    public int getCountNumbersEqualToZero(int[] numbers) {
+    public static int getCountNumbersEqualToZero(int[] numbers) {
         Comparison equalToZero = CustomComparison::isEqualZero;
         return count(numbers, equalToZero);
     }
-    public int getCountNumbersEqualTo(int[] numbers, int number) {
+    public static int getCountNumbersEqualTo(int[] numbers, int number) {
         Comparison equalToNumber = (int n) -> n == number;
         return count(numbers, equalToNumber);
     }
