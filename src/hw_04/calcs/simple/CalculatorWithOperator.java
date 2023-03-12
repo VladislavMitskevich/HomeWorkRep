@@ -1,6 +1,7 @@
 package hw_04.calcs.simple;
 
 public class CalculatorWithOperator {
+
     /**
      * Производит сложение двух чисел
      *

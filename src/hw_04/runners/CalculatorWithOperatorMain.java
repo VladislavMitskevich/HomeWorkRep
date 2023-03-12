@@ -1,6 +1,6 @@
 package hw_04.runners;
 
-import hw_04.calcs.CalculatorWithOperator;
+import hw_04.calcs.simple.CalculatorWithOperator;
 
 public class CalculatorWithOperatorMain {
     public static void main(String[] args) {
