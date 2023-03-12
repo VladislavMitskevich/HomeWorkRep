@@ -1,0 +1,46 @@
+
+|===
+|№ таска |Реализация решения (пакет/класс)
+
+|Task01
+| runners/WithoutCalculatorMain
+
+|Task02
+| simple/CalculatorWithOperator
+ runners/CalculatorWithOperatorMain
+
+|Task03
+| simple/CalculatorWithMathCopy
+runners/CalculatorWithMathCopyMain
+
+|Task04
+|simple/CalculatorWithMathExtends
+runners/CalculatorWithMathExtendsMain
+
+|Task05
+|additional/CalculatorWithCounterClassic
+runners/CalculatorWithCounterClassicMain
+
+|Task06
+|additional/CalculatorWithCounterAutoSuper
+runners/CalculatorWithCounterAutoSuperMain
+
+|Task07
+|additional/CalculatorWithCounterAutoComposite
+runners/CalculatorWithCounterDelegateCompositeMain
+
+|Task08
+|additional/CalculatorWithCounterAutoAgregation
+runners/CalculatorWithCounterDelegateAgregationMain
+
+|Task09
+|additional/CalculatorWithCounterAutoChoiceAgregation
+runners/CalculatorWithCounterDelegateChoiceAgregationMain
+
+|Task10
+|интерфейс api/ICalculator
+
+|Task11
+|additional/CalculatorWithCounterAutoAgregationInterface
+runners/CalculatorWithCounterAutoCompositeInterfaceMain
+|===
