@@ -1,6 +1,5 @@
 package hw_04.calcs.simple;
 
-
 //не имплементируем интерфейс, т.к. наследуемся от класса с имплементацией данного интерфейса
 public class CalculatorWithMathExtends extends CalculatorWithOperator {
     @Override
