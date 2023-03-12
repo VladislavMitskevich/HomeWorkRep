@@ -6,41 +6,41 @@
 | runners/WithoutCalculatorMain
 
 |Task02
-| simple/CalculatorWithOperator
+| simple/CalculatorWithOperator &&
  runners/CalculatorWithOperatorMain
 
 |Task03
-| simple/CalculatorWithMathCopy
+| simple/CalculatorWithMathCopy &&
 runners/CalculatorWithMathCopyMain
 
 |Task04
-|simple/CalculatorWithMathExtends
+|simple/CalculatorWithMathExtends &&
 runners/CalculatorWithMathExtendsMain
 
 |Task05
-|additional/CalculatorWithCounterClassic
+|additional/CalculatorWithCounterClassic &&
 runners/CalculatorWithCounterClassicMain
 
 |Task06
-|additional/CalculatorWithCounterAutoSuper
+|additional/CalculatorWithCounterAutoSuper &&
 runners/CalculatorWithCounterAutoSuperMain
 
 |Task07
-|additional/CalculatorWithCounterAutoComposite
+|additional/CalculatorWithCounterAutoComposite &&
 runners/CalculatorWithCounterDelegateCompositeMain
 
 |Task08
-|additional/CalculatorWithCounterAutoAgregation
+|additional/CalculatorWithCounterAutoAgregation &&
 runners/CalculatorWithCounterDelegateAgregationMain
 
 |Task09
-|additional/CalculatorWithCounterAutoChoiceAgregation
+|additional/CalculatorWithCounterAutoChoiceAgregation &&
 runners/CalculatorWithCounterDelegateChoiceAgregationMain
 
 |Task10
 |интерфейс api/ICalculator
 
 |Task11
-|additional/CalculatorWithCounterAutoAgregationInterface
+|additional/CalculatorWithCounterAutoAgregationInterface &&
 runners/CalculatorWithCounterAutoCompositeInterfaceMain
 |===
