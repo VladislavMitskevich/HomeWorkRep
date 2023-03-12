@@ -1,4 +1,4 @@
-package hw_04.calcs;
+package hw_04.calcs.simple;
 
 public class CalculatorWithOperator {
     /**
@@ -63,7 +63,6 @@ public class CalculatorWithOperator {
      * @param degree натуральный показатель
      * @return результат возведения числа в степень
      */
-
     public double exponentiation(double basis, int degree) {
         double result;
         if (degree == 0) {
@@ -85,8 +84,12 @@ public class CalculatorWithOperator {
      */
     private double absExponentiation(double basis, int degree) {
         double result = basis;
-        for (int i = 1; i < absolute(degree); i++) {
-            result *=  basis;
+        if (basis < 0){
+            System.out.println("You have wrong basis for this operation");
+        } else {
+            for (int i = 1; i < absolute(degree); i++) {
+                result *=  basis;
+            }
         }
         return result;
     }
