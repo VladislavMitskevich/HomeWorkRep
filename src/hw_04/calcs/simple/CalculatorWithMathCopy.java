@@ -1,6 +1,8 @@
 package hw_04.calcs.simple;
 
-public class CalculatorWithMathCopy {
+import hw_04.calcs.api.ICalculator;
+
+public class CalculatorWithMathCopy implements ICalculator {
 
     /**
      * Производит сложение двух чисел

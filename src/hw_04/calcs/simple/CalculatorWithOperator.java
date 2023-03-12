@@ -1,6 +1,8 @@
 package hw_04.calcs.simple;
 
-public class CalculatorWithOperator {
+import hw_04.calcs.api.ICalculator;
+
+public class CalculatorWithOperator implements ICalculator {
 
     /**
      * Производит сложение двух чисел
