@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class ImprovedParallelCalculator {
 
@@ -35,10 +36,15 @@ public class ImprovedParallelCalculator {
      */
     public Map<int[], Integer> getMapWithThread(Collection<Integer> list, int numberThread) {
         Map<int[], Integer> map = new HashMap<>();
+        ReentrantLock lock = new ReentrantLock();
+
+        Runnable runThread = ()->{
+
+        };
 
         ExecutorService executor = Executors.newFixedThreadPool(numberThread);
         for (; numberThread > 0; numberThread--) {
-            executor.execute();
+            executor.execute(runThread);
         }
         executor.shutdown();
 
