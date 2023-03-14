@@ -8,7 +8,7 @@ public class GenerateListOfArray {
     public Collection<int[]> createList(int size) {
         Collection<int[]> list = new ArrayList<>();
         for (int i = 0; i < size; i++) {
-            list.add(new Random().ints(new Random().nextInt(1000000), 1, 301).toArray());
+            list.add(new Random().ints(new Random().nextInt(15), 1, 301).toArray());
         }
         return list;
     }
