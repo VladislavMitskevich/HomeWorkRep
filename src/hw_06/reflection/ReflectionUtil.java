@@ -4,7 +4,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-public class Reflection_util {
+public class ReflectionUtil {
 
     /**
      * @param className - класс, в котором ищем поле
